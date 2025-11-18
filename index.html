@@ -400,6 +400,128 @@
         font-size: 26px;
       }
     }
+    .pricing {
+      padding: 70px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing-title {
+      text-align: center;
+      font-size: 28px;
+      color: #FFD44D;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .pricing-sub {
+      text-align: center;
+      font-size: 13px;
+      color: #a0a0b3;
+      max-width: 520px;
+      margin: 0 auto 30px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .pricing-card {
+      background: #101018;
+      border-radius: 16px;
+      border: 1px solid #262637;
+      padding: 20px 18px 22px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: #FFD44D;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #FFD44D;
+      color: #FFD44D;
+      margin-bottom: 8px;
+    }
+
+    .pricing-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffe7a0;
+      margin-bottom: 4px;
+    }
+
+    .pricing-desc {
+      font-size: 13px;
+      color: #a0a0b3;
+      margin-bottom: 12px;
+    }
+
+    .pricing-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFD44D;
+      margin-bottom: 4px;
+    }
+
+    .pricing-detail {
+      font-size: 11px;
+      color: #a0a0b3;
+      margin-bottom: 12px;
+    }
+
+    .pricing-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+      font-size: 12px;
+      color: #c9c9c9;
+    }
+
+    .pricing-list li {
+      margin-bottom: 4px;
+    }
+
+    .pricing-list li::before {
+      content: "• ";
+      color: #FFD44D;
+    }
+
+    .pricing-cta {
+      margin-top: auto;
+      text-align: left;
+    }
+
+    .pricing-cta a {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #FFD44D;
+      color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 0 16px rgba(245, 200, 90, 0.4);
+      transition: 0.25s;
+    }
+
+    .pricing-cta a:hover {
+      background: #ffea9e;
+      transform: translateY(-1px);
+    }
+
   </style>
 </head>
 <body>
@@ -505,6 +627,84 @@
           <span class="tag">Exemplo: Análise de Vendas, Gerenciador de Projetos</span>
         </article>
       </div> -->
+    </section>
+
+    <section class="pricing" id="planos">
+      <h2 class="pricing-title">Planos & Valores</h2>
+      <p class="pricing-sub">
+        Todos os sites são responsivos, com foco em pequenos comércios e negócios locais.
+        Você escolhe o modelo e eu adapto para a realidade do seu negócio.
+      </p>
+
+      <div class="pricing-grid">
+        
+        <!-- LOJA SIMPLES -->
+        <article class="pricing-card">
+          <span class="pricing-badge">Mais acessível</span>
+          <h3 class="pricing-name">Loja Simples</h3>
+          <p class="pricing-desc">
+            Página única com seus principais produtos e botão direto para WhatsApp.
+          </p>
+          <div class="pricing-price">R$ 350</div>
+          <div class="pricing-detail">Pagamento único · Entrega rápida</div>
+          <ul class="pricing-list">
+            <li>Página única (one page)</li>
+            <li>Seção de produtos com preços</li>
+            <li>Botão de pedido via WhatsApp</li>
+            <li>Site adaptado para celular</li>
+          </ul>
+          <div class="pricing-cta">
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Loja%20Simples.">
+              Quero esse plano
+            </a>
+          </div>
+        </article>
+
+        <!-- CATÁLOGO ONLINE -->
+        <article class="pricing-card">
+          <span class="pricing-badge">Mais vendido</span>
+          <h3 class="pricing-name">Catálogo Online</h3>
+          <p class="pricing-desc">
+            Catálogo com vários produtos e categorias para quem tem mais itens para mostrar.
+          </p>
+          <div class="pricing-price">R$ 550</div>
+          <div class="pricing-detail">Pagamento único · Opção de upgrades futuros</div>
+          <ul class="pricing-list">
+            <li>Página inicial + página de catálogo</li>
+            <li>Produtos organizados por categorias</li>
+            <li>Busca simples por nome</li>
+            <li>Botões de contato / WhatsApp</li>
+          </ul>
+          <div class="pricing-cta">
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Cat%C3%A1logo%20Online.">
+              Quero esse plano
+            </a>
+          </div>
+        </article>
+
+        <!-- SITE PROFISSIONAL -->
+        <article class="pricing-card">
+          <span class="pricing-badge">Mais completo</span>
+          <h3 class="pricing-name">Site Profissional</h3>
+          <p class="pricing-desc">
+            Site completo para reforçar sua marca, com várias seções e visual premium.
+          </p>
+          <div class="pricing-price">R$ 900</div>
+          <div class="pricing-detail">Pagamento único · Ideal para quem quer se destacar</div>
+          <ul class="pricing-list">
+            <li>Página inicial completa</li>
+            <li>Sobre, serviços e depoimentos</li>
+            <li>Integração com WhatsApp e redes sociais</li>
+            <li>Visual sob medida para a sua marca</li>
+          </ul>
+          <div class="pricing-cta">
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Site%20Profissional.">
+              Quero esse plano
+            </a>
+          </div>
+        </article>
+
+      </div>
     </section>
 
     <!-- PORTFÓLIO -->
