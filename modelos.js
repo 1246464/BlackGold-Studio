@@ -8,13 +8,14 @@ const modelos = [
 ];
 const fotoUrl = (id, width=800) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`;
 const contatoModelo = nome => `https://wa.me/5511960670791?text=${encodeURIComponent('Olá! Gostaria de um site baseado no modelo '+nome+'.')}`;
+const apresentacoes = criarApresentacoes();
 const galeria = document.querySelector('#galeria-modelos');
 if (galeria) {
   galeria.innerHTML = modelos.map(m => `<article class="modelo-card" data-tipo="${m.tipo}">
     <a class="modelo-preview" href="modelo.html?tema=${m.id}" style="--modelo-cor:${m.cor};--modelo-fundo:${m.fundo};--modelo-texto:${m.texto}" aria-label="Visualizar modelo ${m.nome}">
       <div class="preview-bar"><span>● ● ●</span><span>${m.nome}</span></div>
       <div class="preview-layout"><div><small>${m.ramo}</small><h3>${m.titulo}</h3><span class="preview-button">Conheça a coleção ↗</span></div><img src="${fotoUrl(m.foto,600)}" alt="Inspiração visual para ${m.ramo}" loading="lazy"></div>
-    </a><div class="modelo-body"><small>${m.tipo} · ${m.ramo}</small><h3>${m.nome}</h3><div class="modelo-bottom"><span class="paleta" aria-label="Paleta de cores"><i style="background:${m.cor}"></i><i style="background:${m.fundo}"></i><i style="background:${m.texto}"></i></span><a href="modelo.html?tema=${m.id}">Explorar modelo →</a></div></div></article>`).join('');
+    </a><div class="modelo-body"><small>${m.tipo} · ${m.ramo}</small><h3>${m.nome}</h3><p class="modelo-recursos">${apresentacoes[m.id].resumo}</p><div class="modelo-bottom"><span class="paleta" aria-label="Paleta de cores"><i style="background:${m.cor}"></i><i style="background:${m.fundo}"></i><i style="background:${m.texto}"></i></span><a href="modelo.html?tema=${m.id}">Explorar modelo →</a></div></div></article>`).join('');
   document.querySelectorAll('[data-filtro-modelo]').forEach(btn => btn.addEventListener('click', () => {
     document.querySelectorAll('[data-filtro-modelo]').forEach(b => b.setAttribute('aria-pressed',String(b === btn)));
     galeria.querySelectorAll('.modelo-card').forEach(card => card.hidden = btn.dataset.filtroModelo !== 'Todos' && card.dataset.tipo !== btn.dataset.filtroModelo);
@@ -23,16 +24,22 @@ if (galeria) {
 const demo = document.querySelector('#demo');
 if (demo) {
   const m = modelos.find(item => item.id === new URLSearchParams(location.search).get('tema')) || modelos[0];
+  const a = apresentacoes[m.id];
+  const destino = {doce:"encomendas",verde:"bowl",cafe:"cardapio",moda:"tamanhos",casa:"materiais",barber:"atendimento"}[m.id];
+  document.body.dataset.tema = m.id;
   document.title = `${m.nome} — Modelo demonstrativo | BlackGold Studio`;
   document.body.style.setProperty('--cor',m.cor); document.body.style.setProperty('--fundo',m.fundo); document.body.style.setProperty('--texto',m.texto);
-  demo.innerHTML = `<header class="demo-header"><strong>${m.nome}</strong><a href="#colecao">${m.tipo === 'Serviços' ? 'Serviços' : 'Coleção'} ↗</a></header>
+  demo.innerHTML = `<header class="demo-header"><strong>${m.nome}</strong><nav aria-label="Navegação do modelo"><a href="#historia">${a.nav[0]}</a><a href="#colecao">${m.tipo === 'Serviços' ? 'Serviços' : 'Coleção'}</a><a href="#${destino}">${a.nav[1]} ↗</a></nav></header>
     <section class="demo-hero"><div><small>${m.ramo} / Modelo demonstrativo</small><h1>${m.titulo}</h1><p>${m.descricao}</p><a class="demo-btn" href="#colecao">${m.tipo === 'Serviços' ? 'Conhecer serviços' : 'Explorar coleção'} →</a></div><img src="${fotoUrl(m.foto,1200)}" alt="${m.ramo}: imagem ilustrativa do modelo"></section>
-    <section class="demo-colecao" id="colecao"><small>UMA SELEÇÃO PARA VOCÊ</small><h2>${m.tipo === 'Serviços' ? 'Nossos serviços' : 'Conheça os destaques'}</h2>
+    ${a.antes}
+    <section class="demo-colecao" id="colecao"><small>UMA SELEÇÃO PARA VOCÊ</small><h2>${a.colecao}</h2>
     ${m.tipo === 'Catálogo' ? '<div class="demo-filtros"><label>Buscar no catálogo <input id="busca" type="search" placeholder="Digite o nome do item"></label><label>Categoria <select id="categoria"><option value="">Todas</option>'+[...new Set(m.categorias)].map(c=>`<option>${c}</option>`).join('')+'</select></label></div>' : ''}
-    <div class="demo-grid">${m.itens.map((nome,i)=>`<article data-nome="${nome}" data-categoria="${m.categorias[i]}"><img src="${fotoUrl(m.fotos[i],700)}" alt="Imagem ilustrativa: ${nome}" loading="lazy"><div class="demo-item"><small>${m.categorias[i]}</small><h3>${nome}</h3><p>R$ ${m.precos[i]}</p><button type="button" class="demo-detalhes" data-item="${i}">Ver detalhes →</button></div></article>`).join('')}</div><p id="vazio" hidden>Nenhum item encontrado. Tente outro nome ou categoria.</p></section>
+    <div class="demo-grid">${m.itens.map((nome,i)=>`<article data-nome="${nome}" data-categoria="${m.categorias[i]}"><img src="${fotoUrl(m.fotos[i],700)}" alt="Imagem ilustrativa: ${nome}" loading="lazy"><div class="demo-item"><small>${m.categorias[i]}</small><h3>${nome}</h3><p class="item-descricao">${a.descricoes[i]}</p><p>R$ ${m.precos[i]}</p><button type="button" class="demo-detalhes" data-item="${i}">Ver detalhes →</button></div></article>`).join('')}</div><p id="vazio" hidden>Nenhum item encontrado. Tente outro nome ou categoria.</p></section>
+    ${a.depois}
     <section class="demo-contato"><h2>Imagine este modelo com a sua marca.</h2><p>Personalizamos cores, textos, imagens e informações para o seu negócio.</p><a class="demo-btn" href="${contatoModelo(m.nome)}">Quero um site assim ↗</a></section>`;
+  iniciarApresentacao(m);
   const normalizar = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
   function filtrar() { let visiveis=0; document.querySelectorAll('[data-nome]').forEach(card => {card.hidden = !normalizar(card.dataset.nome).includes(normalizar(document.querySelector('#busca').value)) || (document.querySelector('#categoria').value !== '' && card.dataset.categoria !== document.querySelector('#categoria').value); if (!card.hidden) visiveis++;}); document.querySelector('#vazio').hidden=visiveis>0; }
   document.querySelector('#busca')?.addEventListener('input',filtrar); document.querySelector('#categoria')?.addEventListener('change',filtrar);
-  document.querySelectorAll('.demo-detalhes').forEach(btn => btn.addEventListener('click', () => {document.querySelector('#detalhe-titulo').textContent=m.itens[btn.dataset.item];document.querySelector('#detalhe-texto').textContent=`Valor ilustrativo: R$ ${m.precos[btn.dataset.item]}. Este item demonstra como seu produto ou serviço pode ser apresentado. Não há venda ou agendamento nesta demonstração.`;document.querySelector('dialog').showModal();}));
+  document.querySelectorAll('.demo-detalhes').forEach(btn => btn.addEventListener('click', () => {document.querySelector('#detalhe-titulo').textContent=m.itens[btn.dataset.item];document.querySelector('#detalhe-texto').textContent=`${a.descricoes[btn.dataset.item]} Valor ilustrativo: R$ ${m.precos[btn.dataset.item]}. Não há venda ou agendamento nesta demonstração.`;document.querySelector('dialog').showModal();}));
 }
