@@ -219,6 +219,8 @@
       }
     }
   </style>
+<link rel="stylesheet" href="catalogo.css">
+<script src="catalogo.js" defer></script>
 </head>
 <body>
   <p style="text-align:center;padding:12px;font-size:12px"><a href="index.html#modelos" style="color:#ffe7a0">← Voltar aos modelos</a> · Catálogo demonstrativo</p>
@@ -229,16 +231,15 @@
     </div>
   </header>
 
+  <main>
   <section class="hero">
-    <h1>Visualize todos os produtos em um único lugar.</h1>
-    <p>
-      Este é um modelo de catálogo online, ideal para mostrar todos os produtos ou serviços
-      com organização, categorias e busca simples. Tudo adaptado para desktop e celular.
-    </p>
+    <div><span class="eyebrow">SELEÇÃO ARTESANAL · CATÁLOGO DEMONSTRATIVO</span><h1>Sabores que merecem<br>um lugar à sua mesa.</h1><p>Doces para uma pausa, bebidas para acompanhar e presentes para compartilhar. Explore nossa seleção e descubra os detalhes de cada produto.</p><a class="catalog-cta" href="#produtos">Explorar o catálogo ↓</a><p class="demo-note">Marca, fotos e valores ilustrativos. Não são realizadas vendas nesta demonstração.</p></div>
+    <figure><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80" alt="Café e mesa posta como inspiração para uma pausa" fetchpriority="high"><figcaption>Uma boa pausa começa pelos detalhes.</figcaption></figure>
   </section>
-
+  <div class="beneficios"><span>01 · Escolha por categoria</span><span>02 · Conheça cada produto</span><span>03 · Inspire-se para presentear</span></div>
+  <section class="section catalog-heading" id="produtos"><span class="eyebrow">DESCUBRA SEUS FAVORITOS</span><h2>Pequenos prazeres, muitas escolhas.</h2><p>Encontre um sabor, explore uma categoria ou veja toda a seleção.</p></section>
   <section class="toolbar">
-    <div class="filters">
+    <div class="filters" role="group" aria-label="Categorias de produtos">
       <button class="filter-btn active" data-category="todos">Todos</button>
       <button class="filter-btn" data-category="doces">Doces</button>
       <button class="filter-btn" data-category="bebidas">Bebidas</button>
@@ -246,103 +247,77 @@
     </div>
     <div class="search-box">
       <span>🔍</span>
-      <input type="text" aria-label="Buscar produtos por nome" id="searchInput" placeholder="Buscar por nome..." />
+      <input type="search" aria-label="Buscar produtos por nome" id="searchInput" placeholder="Buscar por nome..." />
     </div>
   </section>
 
   <section class="section">
+    <p id="resultado" role="status"></p>
     <div class="catalog-grid" id="catalogo">
       <article class="item-card" data-category="doces" data-name="bolo de mel">
+        <img class="produto-foto" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Imagem ilustrativa: bolo de mel" loading="lazy" width="700" height="470">
         <div class="item-tag">Doces</div>
         <div class="item-title">Bolo de Mel Caseiro</div>
         <div class="item-desc">Bolo macio, feito com mel puro, perfeito para acompanhar um café.</div>
         <div class="item-footer">
           <span class="item-price">R$ 24,90</span>
-          <a href="https://wa.me/5511960670791?text=Tenho%20interesse%20no%20modelo%20Cat%C3%A1logo%20Online" class="btn-mini">Quero este modelo</a>
+          <button type="button" class="btn-mini detalhes">Ver detalhes ↗</button>
         </div>
       </article>
 
       <article class="item-card" data-category="bebidas" data-name="cha de mel">
+        <img class="produto-foto" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80" alt="Imagem ilustrativa: cha de mel" loading="lazy" width="700" height="470">
         <div class="item-tag">Bebidas</div>
         <div class="item-title">Chá de Mel com Limão</div>
-        <div class="item-desc">Bebida quente, ideal para dias frios ou para cuidar da garganta.</div>
+        <div class="item-desc">Bebida quente, com mel e limão para acompanhar uma pausa tranquila.</div>
         <div class="item-footer">
           <span class="item-price">R$ 9,90</span>
-          <a href="https://wa.me/5511960670791?text=Tenho%20interesse%20no%20modelo%20Cat%C3%A1logo%20Online" class="btn-mini">Quero este modelo</a>
+          <button type="button" class="btn-mini detalhes">Ver detalhes ↗</button>
         </div>
       </article>
 
       <article class="item-card" data-category="kits" data-name="kit presente mel">
+        <img class="produto-foto" src="https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=700&q=80" alt="Imagem ilustrativa: kit presente mel" loading="lazy" width="700" height="470">
         <div class="item-tag">Kits</div>
         <div class="item-title">Kit Presente com Mel</div>
         <div class="item-desc">Kit com diferentes tipos de mel, perfeito para presentear.</div>
         <div class="item-footer">
           <span class="item-price">R$ 59,90</span>
-          <a href="https://wa.me/5511960670791?text=Tenho%20interesse%20no%20modelo%20Cat%C3%A1logo%20Online" class="btn-mini">Quero este modelo</a>
+          <button type="button" class="btn-mini detalhes">Ver detalhes ↗</button>
         </div>
       </article>
 
       <article class="item-card" data-category="doces" data-name="cookies de mel">
+        <img class="produto-foto" src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80" alt="Imagem ilustrativa: cookies de mel" loading="lazy" width="700" height="470">
         <div class="item-tag">Doces</div>
         <div class="item-title">Cookies de Mel</div>
         <div class="item-desc">Cookies crocantes adoçados com mel, sem conservantes artificiais.</div>
         <div class="item-footer">
           <span class="item-price">R$ 19,90</span>
-          <a href="https://wa.me/5511960670791?text=Tenho%20interesse%20no%20modelo%20Cat%C3%A1logo%20Online" class="btn-mini">Quero este modelo</a>
+          <button type="button" class="btn-mini detalhes">Ver detalhes ↗</button>
         </div>
       </article>
 
       <article class="item-card" data-category="bebidas" data-name="suco especial">
+        <img class="produto-foto" src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=700&q=80" alt="Imagem ilustrativa: suco especial" loading="lazy" width="700" height="470">
         <div class="item-tag">Bebidas</div>
         <div class="item-title">Suco Especial com Mel</div>
         <div class="item-desc">Suco refrescante com toque de mel, leve e saboroso.</div>
         <div class="item-footer">
           <span class="item-price">R$ 12,90</span>
-          <a href="https://wa.me/5511960670791?text=Tenho%20interesse%20no%20modelo%20Cat%C3%A1logo%20Online" class="btn-mini">Quero este modelo</a>
+          <button type="button" class="btn-mini detalhes">Ver detalhes ↗</button>
         </div>
       </article>
     </div>
 
-    <p class="info-footer">
-      *Catálogo demonstrativo. No projeto real, cada item pode abrir uma página de detalhes
-      ou enviar o cliente para o WhatsApp.
-    </p>
+    <div id="sem-resultados" hidden><h3>Nenhum sabor por aqui.</h3><p>Tente outro nome ou volte a explorar todos os produtos.</p><button id="limpar" class="catalog-cta" type="button">Limpar busca e filtros</button></div>
+    <p class="info-footer">Fotos ilustrativas: a apresentação dos produtos pode variar.</p>
   </section>
-
-  <script>
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('.item-card');
-    const searchInput = document.getElementById('searchInput');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        filterItems();
-      });
-    });
-
-    searchInput.addEventListener('input', () => {
-      filterItems();
-    });
-
-    function filterItems() {
-      const category = document.querySelector('.filter-btn.active').dataset.category;
-      const search = searchInput.value.toLowerCase();
-
-      items.forEach(item => {
-        const itemCategory = item.dataset.category;
-        const itemName = item.dataset.name;
-        const matchCategory = (category === 'todos' || category === itemCategory);
-        const matchSearch = itemName.includes(search);
-
-        if (matchCategory && matchSearch) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-  </script>
+  <section class="section presente"><img src="https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80" alt="Mel como inspiração para um presente artesanal" loading="lazy"><div><span class="eyebrow">PARA ALGUÉM ESPECIAL</span><h2>Um presente com sabor de cuidado.</h2><p>Uma seleção de sabores pode transformar um agradecimento, uma visita ou uma celebração. Use este espaço para apresentar kits, embalagens e opções de personalização do seu negócio.</p><a class="catalog-cta" href="#produtos" id="ver-kits">Conhecer os kits →</a></div></section>
+  <section class="section duvidas"><span class="eyebrow">BOM SABER</span><h2>Detalhes que ajudam na escolha.</h2><details><summary>Onde vejo mais informações de cada produto?</summary><p>Abra “Ver detalhes” para conferir a apresentação do item. Um catálogo real pode incluir tamanhos, ingredientes, variações e disponibilidade.</p></details><details><summary>Posso fazer um pedido por aqui?</summary><p>Este catálogo é uma demonstração visual. Na versão do seu negócio, o contato pode levar ao seu WhatsApp com o produto escolhido.</p></details><details><summary>As fotos e os valores são reais?</summary><p>São exemplos ilustrativos. A versão final recebe as fotos, os preços e as informações da sua marca.</p></details></section>
+  <section class="section catalog-contato"><h2>Seu negócio também pode ter um catálogo assim.</h2><p>Organização, imagens e informações reunidas em uma vitrine com a sua identidade.</p><a class="catalog-cta" href="https://wa.me/5511960670791?text=Tenho%20interesse%20no%20modelo%20Cat%C3%A1logo%20Online">Quero este modelo ↗</a></section>
+  </main>
+  <footer class="info-footer">Catálogo demonstrativo · BlackGold Studio</footer>
+  <dialog aria-labelledby="detalhe-titulo"><form method="dialog"><button class="fechar" aria-label="Fechar detalhes">✕</button></form><img id="detalhe-foto" alt=""><div class="dialog-body"><span class="eyebrow" id="detalhe-categoria"></span><h2 id="detalhe-titulo"></h2><p id="detalhe-descricao"></p><strong id="detalhe-preco"></strong><p class="demo-note">Imagem e valor ilustrativos. Esta demonstração não realiza pedidos.</p><form method="dialog"><button class="catalog-cta">Continuar explorando</button></form></div></dialog>
 </body>
 </html>
