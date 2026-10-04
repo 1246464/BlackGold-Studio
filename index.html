@@ -523,6 +523,8 @@
     }
 
   </style>
+  <link rel="stylesheet" href="modelos.css">
+  <script src="modelos.js" defer></script>
 </head>
 <body>
   <header>
@@ -532,7 +534,8 @@
     </div>
     <nav>
       <a href="#servicos">Serviços</a>
-      <a href="#portfolio">Portfólio</a>
+      <a href="#modelos">Modelos prontos</a>
+      <a href="#portfolio">Profissionais</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -547,14 +550,14 @@
           Sites <span>modernos</span> e <span>profissionais</span> para o seu negócio aparecer e vender mais.
         </h1>
         <p>
-          Eu crio páginas rápidas, bonitas e adaptadas ao celular para pequenos comércios,
-          autônomos e negócios locais que querem presença digital sem complicação.
+          Do modelo pronto personalizado ao projeto profissional sob medida: sites para
+          apresentar sua marca, mostrar seus produtos e conectar seu negócio aos clientes.
         </p>
         <div class="hero-cta">
           <a class="btn-primary" href="https://wa.me/5511960670791?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20site%20para%20meu%20neg%C3%B3cio.">
             💬 Falar sobre um site
           </a>
-          <a class="btn-ghost" href="#portfolio">Ver exemplos de projetos →</a>
+          <a class="btn-ghost" href="#modelos">Explorar modelos prontos →</a>
         </div>
       </div>
 
@@ -596,7 +599,7 @@
             Página única com seus principais produtos, preços e botão para pedir direto pelo WhatsApp.
             Ideal para marmitarias, docerias e mini mercados.
           </p>
-          <a class="tag-glow" href="lojas-simples.html" target="_blank">Demonstração: Loja Simples</a>
+          <a class="tag-glow" href="lojas-simples.html" target="_blank" rel="noopener noreferrer">Demonstração: Loja Simples</a>
         </article>
 
         <article class="card">
@@ -606,7 +609,7 @@
             Lista organizada de produtos ou serviços com categorias e busca simples.
             Ótimo para quem tem várias opções e quer tudo em um só lugar.
           </p>
-          <a class="tag-glow" href="catalogo-online.html" target="_blank">Demonstração: catálogo online</a>
+          <a class="tag-glow" href="catalogo-online.html" target="_blank" rel="noopener noreferrer">Demonstração: catálogo online</a>
         </article>
 
         <article class="card">
@@ -616,24 +619,31 @@
             Site completo, com storytelling, seções detalhadas e foco em marca.
             Exemplo real: projeto de mel EJM Santos com visual premium.
           </p>
-          <a class="tag-glow" href="https://ejm-santos-site-1.onrender.com/" target="_blank">Exemplo: EJM Santo</a>
+          <a class="tag-glow" href="https://ejm-santos-site-1.onrender.com/" target="_blank" rel="noopener noreferrer">Exemplo: EJM Santos</a>
         </article>
 
-        <!-- <article class="card">
-          <h3>Painéis e Sistemas</h3>
-          <p>
-            Sistemas em desktop ou web para gestão de vendas, projetos, relatórios e dashboards personalizados.
-          </p>
-          <span class="tag">Exemplo: Análise de Vendas, Gerenciador de Projetos</span>
-        </article>
-      </div> -->
+      </div>
+    </section>
+
+    <section class="section" id="modelos">
+      <div class="modelos-intro"><div><span class="eyebrow">Escolha um ponto de partida</span><h2>Modelos prontos. A sua identidade.</h2><p>Uma estrutura pronta para começar, com cores, imagens e conteúdo adaptados ao seu negócio. Explore diferentes estilos e imagine sua marca aqui.</p></div></div>
+      <div class="modelos-filtros" role="group" aria-label="Filtrar modelos">
+        <button data-filtro-modelo="Todos" aria-pressed="true">Todos os modelos</button>
+        <button data-filtro-modelo="Loja simples" aria-pressed="false">Lojas simples</button>
+        <button data-filtro-modelo="Catálogo" aria-pressed="false">Catálogos</button>
+        <button data-filtro-modelo="Serviços" aria-pressed="false">Serviços</button>
+      </div>
+      <div class="modelos-grid" id="galeria-modelos"></div>
+      <noscript><p>Ative o JavaScript para explorar a galeria ou veja os <a href="lojas-simples.html">modelos originais</a>.</p></noscript>
+      <p class="modelos-note">Marcas fictícias, fotos e valores ilustrativos. Os modelos mostram possibilidades visuais; o conteúdo final será o do seu negócio.</p>
+      <p class="modelos-note">Também disponíveis: <a class="tag-glow" href="lojas-simples.html">Loja clássica ↗</a> <a class="tag-glow" href="catalogo-online.html">Catálogo clássico ↗</a></p>
     </section>
 
     <section class="pricing" id="planos">
       <h2 class="pricing-title">Planos & Valores</h2>
       <p class="pricing-sub">
         Todos os sites são responsivos, com foco em pequenos comércios e negócios locais.
-        Você escolhe o modelo e eu adapto para a realidade do seu negócio.
+        Nos modelos prontos, personalizamos uma estrutura existente. No profissional, planejamos a experiência para a sua marca.
       </p>
 
       <div class="pricing-grid">
@@ -654,7 +664,7 @@
             <li>Site adaptado para celular</li>
           </ul>
           <div class="pricing-cta">
-            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Loja%20Simples.">
+            <a href="https://wa.me/5511960670791?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Loja%20Simples.">
               Quero esse plano
             </a>
           </div>
@@ -676,7 +686,7 @@
             <li>Botões de contato / WhatsApp</li>
           </ul>
           <div class="pricing-cta">
-            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Cat%C3%A1logo%20Online.">
+            <a href="https://wa.me/5511960670791?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Cat%C3%A1logo%20Online.">
               Quero esse plano
             </a>
           </div>
@@ -687,10 +697,10 @@
           <span class="pricing-badge">Mais completo</span>
           <h3 class="pricing-name">Site Profissional</h3>
           <p class="pricing-desc">
-            Site completo para reforçar sua marca, com várias seções e visual premium.
+            Projeto sob medida, com identidade visual própria, conteúdo elaborado e funcionalidades definidas conforme o seu negócio.
           </p>
           <div class="pricing-price">R$ 900</div>
-          <div class="pricing-detail">Pagamento único · Ideal para quem quer se destacar</div>
+          <div class="pricing-detail">Escopo e funcionalidades definidos em proposta</div>
           <ul class="pricing-list">
             <li>Página inicial completa</li>
             <li>Sobre, serviços e depoimentos</li>
@@ -698,7 +708,7 @@
             <li>Visual sob medida para a sua marca</li>
           </ul>
           <div class="pricing-cta">
-            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Site%20Profissional.">
+            <a href="https://wa.me/5511960670791?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20plano%20Site%20Profissional.">
               Quero esse plano
             </a>
           </div>
@@ -709,10 +719,11 @@
 
     <!-- PORTFÓLIO -->
     <section class="section" id="portfolio">
-      <h2 class="section-title">Portfólio</h2>
+      <h2 class="section-title">Sites profissionais · Projetos sob medida</h2>
       <p class="section-sub">
-        Alguns dos projetos que mostram meu estilo de desenvolvimento e design.
+        Projetos mais elaborados, com direção visual própria e uma estrutura pensada para cada negócio.
       </p>
+      <div class="professional-note"><h3>Uma experiência construída para a sua marca</h3><p>Design exclusivo, narrativa da marca e seções mais completas. Recursos avançados, integrações e sistemas podem fazer parte do projeto conforme o escopo, com atenção à navegação, ao desempenho e à experiência no celular.</p></div>
       <div class="portfolio-grid">
         <a href="https://ejm-santos-site-1.onrender.com/">
           <article class="portfolio-item">
@@ -726,31 +737,9 @@
           </article>
         </a>
         
-        <a href="https://1246464.github.io/BlackGold-Studio/">
-          <article class="portfolio-item">
-            <div class="portfolio-thumb">
-              <img src="imagens/blackgold.PNG" alt="" style="width:100%;border-radius:10px;margin-bottom:10px;">
-      
-            </div>
-            <div class="portfolio-body">
-              <h3>BlackGold Studio</h3>
-              <p>BlackGold Studio — Site institucional</p>
-            </div>
-          </article>
-        </a>
-        
-        <a href="https://1246464.github.io/Portfolio-maicon/">
-          <article class="portfolio-item">
-            <div class="portfolio-thumb">
-              <img src="imagens/Portfólio.PNG" alt="" style="width:100%;border-radius:10px;margin-bottom:10px;">
-            </div>
-            <div class="portfolio-body">
-              <h3>Portfólio Pessoal</h3>
-              <p>Portfólio Pessoal — Projetos Web.</p>
-            </div>
-          </article>
-        </a>
-        
+        <!-- Inserir os links e as capturas reais de Viabix e MenuGestor quando disponíveis. -->
+        <article class="portfolio-item"><div class="portfolio-thumb" style="background:linear-gradient(135deg,#163947,#101822);font-size:32px;color:#a5dcd6">Viabix</div><div class="portfolio-body"><h3>Viabix</h3><p>Projeto profissional · Espaço reservado para apresentação.</p><span class="tag">Imagens e link em breve</span></div></article>
+        <article class="portfolio-item"><div class="portfolio-thumb" style="background:linear-gradient(135deg,#452a22,#191319);font-size:32px;color:#f6c09d">MenuGestor</div><div class="portfolio-body"><h3>MenuGestor</h3><p>Projeto profissional · Espaço reservado para apresentação.</p><span class="tag">Imagens e link em breve</span></div></article>
       </div>
     </section>
 
